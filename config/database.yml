@@ -4,7 +4,7 @@ default: &default
   pool: 5
   database: 'smartwatercare' 
   username: 'deploy'
-  password:  <%= ENV['DB_PASSWORD'] %>
+  # password:  <%= ENV['DB_PASSWORD'] %>
 
 production:
   <<: *default
