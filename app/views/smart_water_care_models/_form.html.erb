@@ -1,0 +1,312 @@
+<%= form_with(model: smart_water_care_model) do |form| %>
+  <% if smart_water_care_model.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(smart_water_care_model.errors.count, "error") %> prohibited this smart_water_care_model from being saved:</h2>
+
+      <ul>
+        <% smart_water_care_model.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :dong_number %>
+    <%= form.number_field :dong_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_type %>
+    <%= form.text_field :household_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :smartwatercare_serialnumber %>
+    <%= form.text_field :smartwatercare_serialnumber %>
+  </div>
+
+  <div class="field">
+    <%= form.label :smartwatercare_status %>
+    <%= form.number_field :smartwatercare_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :smartwatercare_errorcode %>
+    <%= form.text_field :smartwatercare_errorcode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :AP_water_flowrate %>
+    <%= form.text_field :AP_water_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :AP_water_totalvolume %>
+    <%= form.text_field :AP_water_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :AP_water_usedtime %>
+    <%= form.text_field :AP_water_usedtime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :AP_water_pressure %>
+    <%= form.text_field :AP_water_pressure %>
+  </div>
+
+  <div class="field">
+    <%= form.label :AP_water_temperature %>
+    <%= form.text_field :AP_water_temperature %>
+  </div>
+
+  <div class="field">
+    <%= form.label :AP_heatingwater_flowrate %>
+    <%= form.text_field :AP_heatingwater_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :AP_heatingwater_totalvolume %>
+    <%= form.text_field :AP_heatingwater_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :AP_heatingwater_pressure %>
+    <%= form.text_field :AP_heatingwater_pressure %>
+  </div>
+
+  <div class="field">
+    <%= form.label :AP_heatingwater_temperature %>
+    <%= form.text_field :AP_heatingwater_temperature %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_kitchen_basin_flowrate %>
+    <%= form.text_field :fstfloor_kitchen_basin_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_kitchen_basin_totalvolume %>
+    <%= form.text_field :fstfloor_kitchen_basin_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_kitchen_builtinwasher_flowrate %>
+    <%= form.text_field :fstfloor_kitchen_builtinwasher_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_kitchen_builtinwasher_totalvolume %>
+    <%= form.text_field :fstfloor_kitchen_builtinwasher_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_restroom_toilet_flowrate %>
+    <%= form.text_field :fstfloor_restroom_toilet_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_restroom_toilet_totalvolume %>
+    <%= form.text_field :fstfloor_restroom_toilet_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_restroom_washbasin_flowrate %>
+    <%= form.text_field :fstfloor_restroom_washbasin_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_restroom_washbasin_totalvolume %>
+    <%= form.text_field :fstfloor_restroom_washbasin_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_restroom_showers_flowrate %>
+    <%= form.text_field :fstfloor_restroom_showers_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_restroom_showers_totalvolume %>
+    <%= form.text_field :fstfloor_restroom_showers_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_utilityroom_flowrate %>
+    <%= form.text_field :fstfloor_utilityroom_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_utilityroom_totalvolume %>
+    <%= form.text_field :fstfloor_utilityroom_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_outdoor_flowrate %>
+    <%= form.text_field :fstfloor_outdoor_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fstfloor_outdoor_totalvolume %>
+    <%= form.text_field :fstfloor_outdoor_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_kitchen_basin_flowrate %>
+    <%= form.text_field :sndfloor_kitchen_basin_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_kitchen_basin_totalvolume %>
+    <%= form.text_field :sndfloor_kitchen_basin_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_kitchen_builtinwasher_flowrate %>
+    <%= form.text_field :sndfloor_kitchen_builtinwasher_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_kitchen_builtinwasher_totalvolume %>
+    <%= form.text_field :sndfloor_kitchen_builtinwasher_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom2_toilet_flowrate %>
+    <%= form.text_field :sndfloor_restroom2_toilet_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom2_toilet_totalvolume %>
+    <%= form.text_field :sndfloor_restroom2_toilet_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom2_washbasin_flowrate %>
+    <%= form.text_field :sndfloor_restroom2_washbasin_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom2_washbasin_totalvolume %>
+    <%= form.text_field :sndfloor_restroom2_washbasin_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom2_showers_flowrate %>
+    <%= form.text_field :sndfloor_restroom2_showers_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom2_showers_totalvolume %>
+    <%= form.text_field :sndfloor_restroom2_showers_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom3_toilet_flowrate %>
+    <%= form.text_field :sndfloor_restroom3_toilet_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom3_toilet_totalvolume %>
+    <%= form.text_field :sndfloor_restroom3_toilet_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom3_washbasin_flowrate %>
+    <%= form.text_field :sndfloor_restroom3_washbasin_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom3_washbasin_totalvolume %>
+    <%= form.text_field :sndfloor_restroom3_washbasin_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom3_tub_flowrate %>
+    <%= form.text_field :sndfloor_restroom3_tub_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_restroom3_tub_totalvolume %>
+    <%= form.text_field :sndfloor_restroom3_tub_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_dressroom_flowrate %>
+    <%= form.text_field :sndfloor_dressroom_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_dressroom_totalvolume %>
+    <%= form.text_field :sndfloor_dressroom_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_outdoor_flowrate %>
+    <%= form.text_field :sndfloor_outdoor_flowrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sndfloor_outdoor_totalvolume %>
+    <%= form.text_field :sndfloor_outdoor_totalvolume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_leakage_expectations %>
+    <%= form.text_field :household_leakage_expectations %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_saving_expectations %>
+    <%= form.text_field :household_saving_expectations %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_basin_pattern_usage %>
+    <%= form.text_field :household_basin_pattern_usage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_toilet_pattern_usage %>
+    <%= form.text_field :household_toilet_pattern_usage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_showers_pattern_usage %>
+    <%= form.text_field :household_showers_pattern_usage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_kitchen_pattern_usage %>
+    <%= form.text_field :household_kitchen_pattern_usage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_restroom_pattern_usage %>
+    <%= form.text_field :household_restroom_pattern_usage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_outdoor_pattern_usage %>
+    <%= form.text_field :household_outdoor_pattern_usage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_utilityroom_pattern_usage %>
+    <%= form.text_field :household_utilityroom_pattern_usage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_tub_pattern_usage %>
+    <%= form.text_field :household_tub_pattern_usage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :household_washer_pattern_usage %>
+    <%= form.text_field :household_washer_pattern_usage %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

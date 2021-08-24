@@ -1,0 +1,2 @@
+class SmartWaterCareModel < ApplicationRecord
+end
