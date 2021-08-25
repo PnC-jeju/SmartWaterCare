@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_012508) do
+ActiveRecord::Schema.define(version: 2021_08_25_015724) do
+
+  create_table "my_stores", charset: "utf8mb4", force: :cascade do |t|
+    t.string "item_name"
+    t.float "item_price"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pressure_sensors", charset: "utf8mb4", force: :cascade do |t|
+    t.string "dong", null: false
+    t.string "roomtype", null: false
+    t.string "pressuresensor_sn", null: false
+    t.integer "pressuresensor_number", null: false
+    t.float "pressure", null: false
+    t.float "temperature", null: false
+    t.datetime "getting_time"
+    t.string "location"
+    t.datetime "created_at", default: -> { "current_timestamp()" }, null: false
+    t.datetime "updated_at", default: -> { "current_timestamp()" }, null: false
+  end
 
   create_table "smart_water_care_models", charset: "utf8mb4", force: :cascade do |t|
     t.integer "dong_number"
@@ -74,6 +94,20 @@ ActiveRecord::Schema.define(version: 2021_08_24_012508) do
     t.float "household_washer_pattern_usage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "water_meters", charset: "utf8mb4", force: :cascade do |t|
+    t.string "dong", null: false
+    t.string "roomtype", null: false
+    t.string "watermeter_sn", null: false
+    t.integer "watermeter_number", null: false
+    t.float "flowrate", default: 0.0
+    t.float "totalvolume", default: 0.0
+    t.string "pipesize", default: "15A"
+    t.datetime "getting_time"
+    t.string "location"
+    t.datetime "created_at", default: -> { "current_timestamp()" }, null: false
+    t.datetime "updated_at", default: -> { "current_timestamp()" }, null: false
   end
 
 end

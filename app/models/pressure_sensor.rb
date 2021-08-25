@@ -1,0 +1,2 @@
+class PressureSensor < ApplicationRecord
+end
