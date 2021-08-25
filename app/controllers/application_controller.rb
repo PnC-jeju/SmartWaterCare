@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  def hello
-    render plain: "hello world! restart!"
-  end
+  include Pagy::Backend
 end
+

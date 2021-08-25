@@ -1,40 +1,41 @@
 <h1>WaterMeters#index</h1>
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3>유량계정보</h3>
-  </div>
-  <div class="panel-body">
-    <table class="table">
-      <thead class="thead-light">
-	<tr>
-	  <th scope="col">유량계 아이디</th>
-	  <th scope="col">유량계 위치(ex:210동, 220동)</th>
-	  <th scope="col">유량계 설치 room type</th>
-	  <th scope="col">유량계 serial number</th>
-	  <th scope="col">유량계 number</th>
-	  <th scope="col">유량계 유량 순시값</th>
-	  <th scope="col">유량계 유량 적산값</th>
-	  <th scope="col">유량계 파이프</th>
-	  <th scope="col">유량계 연결 위치</th>
-	  <th scope="col">유량계 데이터 획득시간[device] </th>
-	</tr>
-      </thead>
-      <tbody>
-	<% @watermeters.each do |watermeter| %>
-	<tr>
-	  <th scope="row"><%= watermeter.id %> </th>
-	  <td><%= watermeter.dong %></td>
-	  <td><%= watermeter.roomtype %></td>
-	  <td><%= watermeter.watermeter_sn %></td>
-	  <td><%= watermeter.watermeter_number %></td>
-	  <td><%= watermeter.flowrate %></td>
-	  <td><%= watermeter.totalvolume %></td>      
-	  <td><%= watermeter.pipesize %></td>
-	  <td><%= watermeter.location %></td>      
-	  <td><%= watermeter.getting_time %></td>
-	</tr>
-	<% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+<%= pagy_nav(@pagy) %>
+<!-- <div class="panel panel-primary"> -->
+<!--   <div class="panel-heading"> -->
+<!--     <h3>유량계정보</h3> -->
+<!--   </div> -->
+<!--   <div class="panel-body"> -->
+<!--     <table class="table"> -->
+<!--       <thead class="thead-light"> -->
+<!-- 	<tr> -->
+<!-- 	  <th scope="col">유량계 아이디</th> -->
+<!-- 	  <th scope="col">유량계 위치(ex:210동, 220동)</th> -->
+<!-- 	  <th scope="col">유량계 설치 room type</th> -->
+<!-- 	  <th scope="col">유량계 serial number</th> -->
+<!-- 	  <th scope="col">유량계 number</th> -->
+<!-- 	  <th scope="col">유량계 유량 순시값</th> -->
+<!-- 	  <th scope="col">유량계 유량 적산값</th> -->
+<!-- 	  <th scope="col">유량계 파이프</th> -->
+<!-- 	  <th scope="col">유량계 연결 위치</th> -->
+<!-- 	  <th scope="col">유량계 데이터 획득시간[device] </th> -->
+<!-- 	</tr> -->
+<!--       </thead> -->
+<!--       <tbody> -->
+<!-- 	<% @watermeters.each do |watermeter| %> -->
+<!-- 	<tr> -->
+<!-- 	  <th scope="row"><%= watermeter.id %> </th> -->
+<!-- 	  <td><%= watermeter.dong %></td> -->
+<!-- 	  <td><%= watermeter.roomtype %></td> -->
+<!-- 	  <td><%= watermeter.watermeter_sn %></td> -->
+<!-- 	  <td><%= watermeter.watermeter_number %></td> -->
+<!-- 	  <td><%= watermeter.flowrate %></td> -->
+<!-- 	  <td><%= watermeter.totalvolume %></td>       -->
+<!-- 	  <td><%= watermeter.pipesize %></td> -->
+<!-- 	  <td><%= watermeter.location %></td>       -->
+<!-- 	  <td><%= watermeter.getting_time %></td> -->
+<!-- 	</tr> -->
+<!-- 	<% end %> -->
+<!--       </tbody> -->
+<!--     </table> -->
+<!--   </div> -->
+<!-- </div> -->

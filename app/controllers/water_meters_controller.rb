@@ -1,6 +1,6 @@
 class WaterMetersController < ApplicationController
   def index
-    @watermeters = WaterMeter.all
+    @pagy, @watermeters = pagy(WaterMeter.all, item: 10)
   end
   def list
 
