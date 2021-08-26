@@ -9,59 +9,6 @@
     </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-    </div>
-    <div class="col">
-    </div>
-  </div>
-  <div class="row">
-      <div class="col-1"></div>
-      <div class="col">
-	  <table id="example-table-1" class="table table-hover w-auto small">
-	      <thead>
-		  <tr>
-		      <th scope="col">ID</th>
-		      <th scope="col">건물(dong)</th>
-		      <th scope="col">room type</th>
-		      <th scope="col">시리얼 번호</th>
-		      <th scope="col">압력계 번호</th>
-		      <th scope="col">압력 값</th>
-		      <th scope="col">온도 값</th>
-		      <th scope="col">연결 위치</th>
-		      <th scope="col">데이터 획득시간 </th>
-		  </tr>
-	      </thead>
-	      <tbody>
-		  <% @ps.each do |pressuresensor| %>
-		      <tr>
-			  <th scope="row"><%= pressuresensor.id %> </th>
-			  <td><%= pressuresensor.dong %></td>
-			  <td><%= pressuresensor.roomtype %></td>
-			  <td><%= pressuresensor.pressuresensor_sn %></td>
-			  <td><%= pressuresensor.pressuresensor_number %></td>
-			  <td><%= pressuresensor.pressure %></td>
-			  <td><%= pressuresensor.temperature %></td>
-			  <td><%= pressuresensor.location %></td>
-			  <td><%= pressuresensor.getting_time %></td>
-		      </tr>
-		  <% end %>
-	      </tbody>
-	  </table>
-    </div>
-  </div>
-</div>
-<div class="row">
-    <div class="col-2">
-
-    </div>
-    <div class="col">
-	<ul><li><%= pagy_bootstrap_nav(@pagy).html_safe %></li></ul>
-    </div>
-    <div class="col-4"></div>
-</div>
-
 <div class="row">
     <div class="col-2"></div>
     <div class="col-8 card border-secondary " >
@@ -96,9 +43,10 @@
 				<td><%= pressuresensor.getting_time %></td>
 			    </tr>
 			<% end %>
+
 		    </tbody>
 		</table>
-
+		<%= pagy_bootstrap_nav(@pagy).html_safe %>
 	    </p>
 	</div>
     </div>
