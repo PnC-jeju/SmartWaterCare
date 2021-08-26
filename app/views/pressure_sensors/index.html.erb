@@ -19,40 +19,37 @@
   <div class="row">
       <div class="col-1"></div>
       <div class="col">
-	  <div class="table-responsive">
-	      <table id="example-table-1" class="table table-hover w-auto small">
-		  <thead>
+	  <table id="example-table-1" class="table table-hover w-auto small">
+	      <thead>
+		  <tr>
+		      <th scope="col">ID</th>
+		      <th scope="col">건물(dong)</th>
+		      <th scope="col">room type</th>
+		      <th scope="col">시리얼 번호</th>
+		      <th scope="col">압력계 번호</th>
+		      <th scope="col">압력 값</th>
+		      <th scope="col">온도 값</th>
+		      <th scope="col">연결 위치</th>
+		      <th scope="col">데이터 획득시간 </th>
+		  </tr>
+	      </thead>
+	      <tbody>
+		  <% @ps.each do |pressuresensor| %>
 		      <tr>
-			  <th scope="col">ID</th>
-			  <th scope="col">건물(dong)</th>
-			  <th scope="col">room type</th>
-			  <th scope="col">시리얼 번호</th>
-			  <th scope="col">압력계 번호</th>
-			  <th scope="col">압력 값</th>
-			  <th scope="col">온도 값</th>
-			  <th scope="col">연결 위치</th>
-			  <th scope="col">데이터 획득시간 </th>
+			  <th scope="row"><%= pressuresensor.id %> </th>
+			  <td><%= pressuresensor.dong %></td>
+			  <td><%= pressuresensor.roomtype %></td>
+			  <td><%= pressuresensor.pressuresensor_sn %></td>
+			  <td><%= pressuresensor.pressuresensor_number %></td>
+			  <td><%= pressuresensor.pressure %></td>
+			  <td><%= pressuresensor.temperature %></td>
+			  <td><%= pressuresensor.location %></td>
+			  <td><%= pressuresensor.getting_time %></td>
 		      </tr>
-		  </thead>
-		  <tbody>
-		      <% @ps.each do |pressuresensor| %>
-			  <tr>
-			      <th scope="row"><%= pressuresensor.id %> </th>
-			      <td><%= pressuresensor.dong %></td>
-			      <td><%= pressuresensor.roomtype %></td>
-			      <td><%= pressuresensor.pressuresensor_sn %></td>
-			      <td><%= pressuresensor.pressuresensor_number %></td>
-			      <td><%= pressuresensor.pressure %></td>
-			      <td><%= pressuresensor.temperature %></td>
-			      <td><%= pressuresensor.location %></td>
-			      <td><%= pressuresensor.getting_time %></td>
-			  </tr>
-		      <% end %>
-		  </tbody>
-	      </table>
-	  </div>
+		  <% end %>
+	      </tbody>
+	  </table>
     </div>
-    <div id="ex1_Result1" class="col-1"></div>
   </div>
 </div>
 <div class="row">
@@ -65,20 +62,45 @@
     <div class="col-4"></div>
 </div>
 
-<script type="text/javascript">
- // 테이블의 Row 클릭시 값 가져오기
- $("#example-table-1 tr").click(function(){ 	
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 card border-secondary " >
+	<div class="card-header">Pressure Sensors Table</div>
+	<div class="card-body text-secondary">
+	    <p class="card-text">
+		<table class="table table-hover w-auto small">
+		    <thead>
+			<tr>
+			    <th scope="col">ID</th>
+			    <th scope="col">건물(dong)</th>
+			    <th scope="col">room type</th>
+			    <th scope="col">시리얼 번호</th>
+			    <th scope="col">압력계 번호</th>
+			    <th scope="col">압력 값</th>
+			    <th scope="col">온도 값</th>
+			    <th scope="col">연결 위치</th>
+			    <th scope="col">데이터 획득시간 </th>
+			</tr>
+		    </thead>
+		    <tbody>
+			<% @ps.each do |pressuresensor| %>
+			    <tr>
+				<th scope="row"><%= pressuresensor.id %> </th>
+				<td><%= pressuresensor.dong %></td>
+				<td><%= pressuresensor.roomtype %></td>
+				<td><%= pressuresensor.pressuresensor_sn %></td>
+				<td><%= pressuresensor.pressuresensor_number %></td>
+				<td><%= pressuresensor.pressure %></td>
+				<td><%= pressuresensor.temperature %></td>
+				<td><%= pressuresensor.location %></td>
+				<td><%= pressuresensor.getting_time %></td>
+			    </tr>
+			<% end %>
+		    </tbody>
+		</table>
 
-     var str = ""
-     var tdArr = new Array();	// 배열 선언
-     
-     // 현재 클릭된 Row(<tr>)
-     var tr = $(this);
-     var td = tr.children();
-     
-     // tr.text()는 클릭된 Row 즉 tr에 있는 모든 값을 가져온다.
-     console.log("클릭한 Row의 모든 데이터 : "+tr.text());
-     $("#ex1_Result1").html(" * 클릭한 Row의 모든 데이터 = " + tr.text());		
-
- });
-</script>
+	    </p>
+	</div>
+    </div>
+    <div class="col-2"></div>    
+</div>
