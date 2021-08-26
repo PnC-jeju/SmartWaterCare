@@ -1,41 +1,41 @@
 <h1>PressureSensors#index</h1>
-<!-- <div class="panel panel-primary"> -->
-<!--   <div class="panel-heading"> -->
-<!--     <h3>압력계(온도계포함)정보</h3> -->
-<!--   </div> -->
-<!--   <div class="panel-body"> -->
-<!--     <table class="table"> -->
-<!--       <thead class="thead-light"> -->
-<!-- 	<tr> -->
-<!-- 	  <th scope="col">압력계 아이디</th> -->
-<!-- 	  <th scope="col">압력계 위치(ex:210동, 220동)</th> -->
-<!-- 	  <th scope="col">압력계 설치 room type</th> -->
-<!-- 	  <th scope="col">압력계 serial number</th> -->
-<!-- 	  <th scope="col">압력계 number</th> -->
-<!-- 	  <th scope="col">압력계 압력값</th> -->
-<!-- 	  <th scope="col">압력계 온도값</th> -->
-<!-- 	  <th scope="col">압력계 파이프</th> -->
-<!-- 	  <th scope="col">압력계 연결 위치</th> -->
-<!-- 	  <th scope="col">압력계 데이터 획득시간[device] </th> -->
-<!-- 	</tr> -->
-<!--       </thead> -->
-<!--       <tbody> -->
-<!-- 	<% @pressuresensors.each do |pressuresensor| %> -->
-<!-- 	<tr> -->
-<!-- 	  <th scope="row"><%= pressuresensor.id %> </th> -->
-<!-- 	  <td><%= pressuresensor.dong %></td> -->
-<!-- 	  <td><%= pressuresensor.roomtype %></td> -->
-<!-- 	  <td><%= pressuresensor.pressuresensor_sn %></td> -->
-<!-- 	  <td><%= pressuresensor.pressuresensor_number %></td> -->
-<!-- 	  <td><%= pressuresensor.flowrate %></td> -->
-<!-- 	  <td><%= pressuresensor.totalvolume %></td> -->
-<!-- 	  <td><%= pressuresensor.pipesize %></td> -->
-<!-- 	  <td><%= pressuresensor.location %></td> -->
-<!-- 	  <td><%= pressuresensor.getting_time %></td> -->
-<!-- 	</tr> -->
-<!-- 	<% end %> -->
-<!--       </tbody> -->
-<!--     </table> -->
-<!--   </div> -->
-<!-- </div> -->
-<!-- <%= pagy_bootstrap_nav(@pagy).html_safe %> -->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>압력계(온도계포함)정보</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead class="thead-light">
+	<tr>
+	  <th scope="col">압력계 아이디</th>
+	  <th scope="col">압력계 위치(ex:210동, 220동)</th>
+	  <th scope="col">압력계 설치 room type</th>
+	  <th scope="col">압력계 serial number</th>
+	  <th scope="col">압력계 number</th>
+	  <th scope="col">압력계 압력값</th>
+	  <th scope="col">압력계 온도값</th>
+	  <th scope="col">압력계 파이프</th>
+	  <th scope="col">압력계 연결 위치</th>
+	  <th scope="col">압력계 데이터 획득시간[device] </th>
+	</tr>
+      </thead>
+      <tbody>
+	<% @ps.each do |pressuresensor| %>
+	<tr>
+	  <th scope="row"><%= pressuresensor.id %> </th>
+	  <td><%= pressuresensor.dong %></td>
+	  <td><%= pressuresensor.roomtype %></td>
+	  <td><%= pressuresensor.pressuresensor_sn %></td>
+	  <td><%= pressuresensor.pressuresensor_number %></td>
+	  <td><%= pressuresensor.flowrate %></td>
+	  <td><%= pressuresensor.totalvolume %></td>
+	  <td><%= pressuresensor.pipesize %></td>
+	  <td><%= pressuresensor.location %></td>
+	  <td><%= pressuresensor.getting_time %></td>
+	</tr>
+	<% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= pagy_bootstrap_nav(@pagy).html_safe %>
