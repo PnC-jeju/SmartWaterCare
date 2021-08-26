@@ -6,6 +6,7 @@
 	<%= link_to 'home', root_path, class: "btn btn-primary my-2" %>
     </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col">
@@ -23,25 +24,27 @@
 		    <th scope="col">건물(dong)</th>
 		    <th scope="col">room type</th>
 		    <th scope="col">시리얼 번호</th>
-		    <th scope="col">압력계 번호</th>
-		    <th scope="col">압력 값</th>
-		    <th scope="col">온도 값</th>
+		    <th scope="col">유량계 번호</th>
+		    <th scope="col">순시값</th>
+		    <th scope="col">적산값</th>
+		    <th scope="col">파이프 규격</th>
 		    <th scope="col">연결 위치</th>
 		    <th scope="col">데이터 획득시간 </th>
 		</tr>
 	    </thead>
 	    <tbody>
-		<% @ps.each do |pressuresensor| %>
+		<% @watermeters.each do |watermeter| %>
 		<tr>
-		    <th scope="row"><%= pressuresensor.id %> </th>
-		    <td><%= pressuresensor.dong %></td>
-		    <td><%= pressuresensor.roomtype %></td>
-		    <td><%= pressuresensor.pressuresensor_sn %></td>
-		    <td><%= pressuresensor.pressuresensor_number %></td>
-		    <td><%= pressuresensor.pressure %></td>
-		    <td><%= pressuresensor.temperature %></td>
-		    <td><%= pressuresensor.location %></td>
-		    <td><%= pressuresensor.getting_time %></td>
+		    <th scope="row"><%= watermeter.id %> </th>
+		    <td><%= watermeter.dong %></td>
+		    <td><%= watermeter.roomtype %></td>
+		    <td><%= watermeter.watermeter_sn %></td>
+		    <td><%= watermeter.watermeter_number %></td>
+		    <td><%= watermeter.flowrate %></td>
+		    <td><%= watermeter.totalvolume %></td>
+		    <td><%= watermeter.pipesize %></td>
+		    <td><%= watermeter.location %></td>
+		    <td><%= watermeter.getting_time %></td>
 		</tr>
 		<% end %>
 	    </tbody>
@@ -59,4 +62,3 @@
     </div>
     <div class="col-4"></div>
 </div>
-
