@@ -1,3 +1,3 @@
 require 'pagy/extras/bootstrap'
-Pagy::VARS[:items] = 25
-Pagy::VARS[:counts] = 10
+Pagy::VARS[:items] = 15
+# Pagy::VARS[:counts] = 10
