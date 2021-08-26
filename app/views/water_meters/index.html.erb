@@ -45,6 +45,10 @@
     <div class="col-1"></div>
   </div>
 </div>
-<div class="text-center">
- <ul><li><%= pagy_bootstrap_nav(@pagy).html_safe %></li></ul>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col">
+	<ul><li><%= pagy_bootstrap_nav(@pagy).html_safe %></li></ul>
+    </div>
+    <div class="col-3"></div>
 </div>
