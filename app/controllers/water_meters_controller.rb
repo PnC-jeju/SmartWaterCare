@@ -1,6 +1,6 @@
 class WaterMetersController < ApplicationController
   def index
-    @pagy, @watermeters = pagy(WaterMeter.order(id: :desc).limit(100), item: 10)
+    @pagy, @watermeters = pagy(WaterMeter.order(id: :desc).limit(500), item: 10)
   end
   def list
 
