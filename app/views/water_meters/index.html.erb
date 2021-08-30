@@ -5,6 +5,7 @@
     </div>
     <div class="col-2"></div>    
     <div class="col-3">
+      	<%= link_to 'refresh', watermeter_path, class: "btn btn-secondary my-2" %>
 	<%= link_to 'home', root_path, class: "btn btn-primary my-2" %>
     </div>
 </div>
@@ -54,6 +55,15 @@
     <div class="col-2"></div>    
 </div>
 
+<!-- <script>
+     $(document).ready(function () {
+     $("button").click(function () {
+     location.reload(true);
+     alert('Reloading Page');
+     });
+     });
+     </script> -->
+ 
 <!-- <script>
      setTimeout("location.reload();",10000);
      </script> -->
