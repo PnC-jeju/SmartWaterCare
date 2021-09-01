@@ -7,8 +7,9 @@
  * import Turbolinks from "turbolinks"
  * import * as ActiveStorage from "@rails/activestorage"
  * import "channels" */
+/* import '../../../node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js'; */
 import '../js/bootstrap_js_files.js' 
-
+/* import '../../../node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js'; */
 /* Rails.start()
  * Turbolinks.start()
  * ActiveStorage.start() */
