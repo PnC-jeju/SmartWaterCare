@@ -59,35 +59,5 @@
     <div class="col-2"></div>    
 </div>
 
-<script>
-  const cbox = document.getElementById('switcher')
-  cbox.addEventListener('change', (event) => {
-    if (cbox.checked) {
-      alert("checked");
-      setTimeout("location.reload();",3000);
-    }else {
-      alert("not checked");     
-    }
-  }); 
- 
-  /* var url = window.location.href;    
-  * if (url.indexOf('?') > -1){
-  *    url += '&param=1'
-  * }else{
-  *    url += '?param=1'
-  * }
-  * window.location.href = url;
-  *  const cbox = document.getElementById('switcher')
-  *  cbox.checked=true;
-  *  setTimeout("location.reload();",1000);
-  *  
-  *  cbox.addEventListener('change', (event) => {
-  *    if (cbox.checked) {
-  *      alert("checked");
-  *      setTimeout("location.reload();",5000);
-  *    }else {
-  *      alert("not checked");     
-  *    }
-  *   }); */
 
-</script>
+<%= javascript_pack_tag 'pressure_sensors_index' %>
