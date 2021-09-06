@@ -1,10 +1,11 @@
 /* switcher event handler */
+const auto_refresh_checkbox = document.getElementById('switcher');
 
-$('#switcher').addEventListener('change', function() {
+auto_refresh_checkbox.addEventListener('change', function() {
   if (this.checked) {
-    alert("switcher is turned on...[auto refresh-event]");
+    alert("turned on...[pressure auto refresh-by event]");
   } else {
-    alert("switcher is turned off...[auto refresh-event]");
+    alert("turned off...[pressure auto refresh-by event]");
   }
 });
 
@@ -13,9 +14,9 @@ $(function() {
   /* html에서 switcher라는 auto-refresh가 checked되어 있는지 확인 */
   var auto_refresh_value = $("#switcher").prop("checked");
   if(auto_refresh_value) {
-        alert("switcher is turned on...[auto refresh-loading]");
+        alert("turned on...[auto refresh-by loading]");
   }else {
-        alert("switcher is turned off...[auto refresh-loading]");
+        alert("turned off...[auto refresh-by loading]");
   }
 });
 
