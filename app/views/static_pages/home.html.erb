@@ -1,0 +1,16 @@
+<main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">임시 홈</h1>
+        <p class="lead text-muted">당장 처리할 께 있어서 홈피작업은 보류하고 유량계와 압력계 테이블 링크 겁니다.
+        <p>
+	  <%= link_to '유량계테이블', {controller: :water_meters, action: :index }, class: "btn btn-primary my-2" %>
+	  <%= link_to '압력계테이블', {controller: :pressure_sensors, action: :index }, class: "btn btn-secondary my-2" %>	  
+          <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a> -->
+          <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
