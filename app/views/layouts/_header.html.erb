@@ -30,12 +30,16 @@
       <ul class="nav navbar-nav ml-auto">
 	<% if user_signed_in? %>
 	  <li class="nav-item">
+	    <%= link_to edit_user_registration_path, class: "nav-link" do %>
+	      <i class="fas fa-user"></i>
+	      <%= current_user.username %>
+	    <% end %>	    
+	  </li>
+	  <li class="nav-item">
 	    <%= link_to destroy_user_session_path, data:{method: "delete"}, class: "nav-link" do %>
-	    <!-- <span> -->
 	      <i class="fas fa-sign-out-alt"></i>
 	      Log Out
-	      <!-- </span> -->
-	      <% end %>
+	    <% end %>
 	  </li>
 	<% else %>
 	  <li class="nav-item">
