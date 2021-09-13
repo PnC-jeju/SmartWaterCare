@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-
   devise_for :users
+  
+  authenticate :user, lambda {  |u| u.admin? } do
+    begin
+      mount RailsAdmin::Engine => '/admin', as: 'rails_admin'      
+    rescue
+      redirect_to new_user_session_path
+    end
+  end
+
   get 'static_pages/home'
   get 'static_pages/help'
   get 'static_pages/about'
