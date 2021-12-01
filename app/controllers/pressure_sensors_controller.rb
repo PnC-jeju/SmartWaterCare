@@ -8,7 +8,6 @@ class PressureSensorsController < ApplicationController
 
   def change_value_switcher
     session[:switcher_value]= params[:switcher_value]
-    byebug
   end
 
   private
@@ -16,6 +15,5 @@ class PressureSensorsController < ApplicationController
     if session[:switcher_value] == nil
       session[:switcher_value] = true
     end
-    byebug
   end
 end
