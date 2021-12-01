@@ -7,7 +7,12 @@
     <div class="col-2"></div>    
     <div class="col-3">
       <div class="form-check form-switch">
-	<input class="form-check-input" type="checkbox" id="switcher">
+	<% byebug %>
+	<% if session[:switcher_value] =="true" then %>
+	  <input class="form-check-input" type="checkbox" id="switcher" checked>
+	<% else %>
+	  <input class="form-check-input" type="checkbox" id="switcher">
+	<% end %>
 	<label class="form-check-label" for="switcher"> Auto Refresh </label>
       </div>
       <%= link_to 'refresh', pressure_path, { :class => 'btn btn-secondary', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'button or auto?'} %>
