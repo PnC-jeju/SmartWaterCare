@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   root to: "static_pages#home"
   get '/watermeter', to: 'water_meters#index'
   get '/pressure', to: 'pressure_sensors#index'
+  get '/chart', to: 'charts#show'  
   get '/pressure/change_value_switcher', to: 'pressure_sensors#change_value_switcher'
 end
