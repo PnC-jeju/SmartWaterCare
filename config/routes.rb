@@ -9,6 +9,15 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace 'api' do
+    namespace 'v1' do
+      get '/realtimedata' => 'statistics#realtimedata'      
+      get '/hourlydata' => 'statistics#hourlydata'
+      get '/dailydata' => 'statistics#dailydata'            
+      get '/monthlydata' => 'statistics#monthlydata'      
+    end
+  end
+  
   get 'static_pages/home'
   get 'static_pages/help'
   get 'static_pages/about'
