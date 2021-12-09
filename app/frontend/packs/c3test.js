@@ -24,7 +24,7 @@ function fetchdata(){
 	 x: {
 	   tick: {
 	     culling: {
-	       max:10
+	       max:20
 	     }
 	   }
 	 }
@@ -44,7 +44,7 @@ function fetchdata(){
 	 x: {
 	   tick: {
 	     culling: {
-	       max:10
+	       max:20
 	     }
 	   }
 	 }
@@ -54,6 +54,6 @@ function fetchdata(){
 }})}
 
 $(document).ready(function(){
-  setInterval(fetchdata,1000);
+  setInterval(fetchdata,2000);
   /* fetchdata(); */
 });
