@@ -16,7 +16,8 @@ function fetchdata(){
        data: {
 	 json: value,
 	 keys: {
-	   value: ['flowrate', 'totalvolume']
+	   /* value: ['flowrate', 'totalvolume'] */
+	   value: ['flowrate'] 
 	 },
        },
        axis: {
