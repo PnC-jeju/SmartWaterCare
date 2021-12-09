@@ -12,7 +12,7 @@ function fetchdata(){
      // Perform operation on the return value
      
      var chart = c3.generate({
-       bindto: "#linechart",
+       bindto: "#flowrate_linechart",
        data: {
 	 json: value,
 	 keys: {
@@ -30,6 +30,27 @@ function fetchdata(){
 	 }
        }
      });
+
+     var chart = c3.generate({
+       bindto: "#totalvolume_linechart",
+       data: {
+	 json: value,
+	 keys: {
+	   /* value: ['flowrate', 'totalvolume'] */
+	   value: ['totalvolume'] 
+	 },
+       },
+       axis: {
+	 x: {
+	   tick: {
+	     culling: {
+	       max:10
+	     }
+	   }
+	 }
+       }
+     });
+     
 }})}
 
 $(document).ready(function(){
