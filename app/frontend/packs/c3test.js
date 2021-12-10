@@ -22,7 +22,7 @@ const chartData = {
     ['x',],
     ['flowrate',]
   ],
-  type: 'area-spline'
+  type: 'area'
 }
 
 let chart = c3.generate({
