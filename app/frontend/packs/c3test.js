@@ -82,29 +82,28 @@ let chart = c3.generate({
  *      });
  *      
  * }})} */
-
-$(document).ready(function(){
   /* setInterval(fetchdata,2000); */
   /* fetchdata(); */
+$(document).ready(function(){
   setInterval(() => {
-     
-    fetch('/api/v1/realtimedata')
-      .then(response => {
-	var flowratevalue;
-	for (var index in response) {
-          console.log(response[index]);
-	}
+    $.ajax({
+      url: '/api/v1/realtimedata',
+      type: 'get',
+      error: function (error) {
+	console.log(error);
+      },
+      success: function(response){
 	chart.axis.min({x: timeTail()});
 	chart.axis.max({x: timeNow()});
 
 	chartData.columns[0].push(timeNow());
 	chartData.columns[1].push(Math.random());
 	chart.load({columns: chartData.columns});
-      })
-      .catch(error => {
+      },
+      complete: function() {
+	console.log("end");
+      }
+    });
+  }
+  , 1000); });  
 
-      });
-
-
-  }, 1000)  
-});
