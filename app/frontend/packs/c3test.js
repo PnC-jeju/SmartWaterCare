@@ -93,6 +93,7 @@ $(document).ready(function(){
 	console.log(error);
       },
       success: function(response){
+	console.log(response);
 	chart.axis.min({x: timeTail()});
 	chart.axis.max({x: timeNow()});
 
