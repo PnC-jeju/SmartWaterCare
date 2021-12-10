@@ -20,7 +20,7 @@ const chartData = {
   xFormat: '%Y-%m-%d %H:%M:%S',
   columns: [
     ['x',],
-    ['data1',]
+    ['flowrate',]
   ]
 }
 
@@ -93,6 +93,11 @@ $(document).ready(function(){
 	console.log(error);
       },
       success: function(response){
+	var flowratevalue;
+	for (var index in response) {
+          console.log(response[index]);
+	  
+	}
 	console.log(response);
 	chart.axis.min({x: timeTail()});
 	chart.axis.max({x: timeNow()});
