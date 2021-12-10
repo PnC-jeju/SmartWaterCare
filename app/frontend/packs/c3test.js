@@ -21,11 +21,12 @@ const chartData = {
   columns: [
     ['x',],
     ['flowrate',]
-  ]
+  ],
+  type: 'area-spline'
 }
 
 let chart = c3.generate({
-    bindto: '#flowrate_linechart1',
+    bindto: '#flowrate_linechart',
     data: chartData,
     axis: chartAxis,
 });
