@@ -31,8 +31,6 @@ let chart = c3.generate({
 });
 
 
-
-
 /* 
  * function fetchdata(){
  *  $.ajax({
@@ -89,12 +87,24 @@ $(document).ready(function(){
   /* setInterval(fetchdata,2000); */
   /* fetchdata(); */
   setInterval(() => {
-  // redraw time series axis in every second
-    chart.axis.min({x: timeTail()});
-    chart.axis.max({x: timeNow()});
+     
+    fetch('/api/v1/realtimedata')
+      .then(response => {
+	var flowratevalue;
+	for (var index in response) {
+          console.log(response[index]);
+	}
+	chart.axis.min({x: timeTail()});
+	chart.axis.max({x: timeNow()});
 
-    chartData.columns[0].push(timeNow());
-    chartData.columns[1].push(Math.random());
-    chart.load({columns: chartData.columns});
+	chartData.columns[0].push(timeNow());
+	chartData.columns[1].push(Math.random());
+	chart.load({columns: chartData.columns});
+      })
+      .catch(error => {
+
+      });
+
+
   }, 1000)  
 });

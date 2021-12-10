@@ -1,6 +1,6 @@
 class Api::V1::StatisticsController < ApplicationController
   def realtimedata
-    @waterdata = WaterMeter.limit(20).order('getting_time desc')
+    @waterdata = WaterMeter.select('flowrate').limit(1).order('getting_time desc')
     render json: @waterdata
   end
   def hourlydata
