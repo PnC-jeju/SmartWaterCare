@@ -25,7 +25,7 @@ const chartData = {
 }
 
 let chart = c3.generate({
-    bindto: '#chart',
+    bindto: '#flowrate_linechart',
     data: chartData,
     axis: chartAxis,
 });
@@ -96,14 +96,15 @@ $(document).ready(function(){
 	var flowratevalue;
 	for (var index in response) {
           console.log(response[index]);
-	  
+	  obj = response[index];
+	  flowratevalue = obj['flowrate'];
 	}
 	console.log(response);
 	chart.axis.min({x: timeTail()});
 	chart.axis.max({x: timeNow()});
 
 	chartData.columns[0].push(timeNow());
-	chartData.columns[1].push(Math.random());
+	chartData.columns[1].push(flowratevalue);
 	chart.load({columns: chartData.columns});
       },
       complete: function() {
