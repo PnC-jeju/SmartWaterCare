@@ -1,3 +1,6 @@
+const timeNow = () => dayjs().format('YYYY-MM-DD HH:mm:ss');
+console.log(timeNow());
+
 function fetchdata(){
  $.ajax({
   url: '/api/v1/realtimedata',
