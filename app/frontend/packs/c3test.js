@@ -26,7 +26,7 @@ const chartData = {
 }
 
 let chart = c3.generate({
-    bindto: '#flowrate_linechart1',
+    bindto: '#flowrate_linechart',
     data: chartData,
     axis: chartAxis,
 });
