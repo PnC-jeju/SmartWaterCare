@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  
   authenticate :user, lambda {  |u| u.admin? } do
     begin
       mount RailsAdmin::Engine => '/admin', as: 'rails_admin'      
@@ -11,10 +10,10 @@ Rails.application.routes.draw do
 
   namespace 'api' do
     namespace 'v1' do
-      get '/realtimedata' => 'statistics#realtimedata'      
-      get '/hourlydata' => 'statistics#hourlydata'
-      get '/dailydata' => 'statistics#dailydata'            
-      get '/monthlydata' => 'statistics#monthlydata'      
+      post '/realtimedata' => 'statistics#realtimedata'      
+      # get '/hourlydata' => 'statistics#hourlydata'
+      # get '/dailydata' => 'statistics#dailydata'            
+      # get '/monthlydata' => 'statistics#monthlydata'      
     end
   end
   

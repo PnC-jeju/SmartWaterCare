@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_160326) do
     t.string "location"
     t.datetime "created_at", default: -> { "current_timestamp()" }, null: false
     t.datetime "updated_at", default: -> { "current_timestamp()" }, null: false
+    t.index ["getting_time", "dong", "roomtype"], name: "extract_data"
   end
 
   create_table "smart_water_care_models", charset: "utf8mb4", force: :cascade do |t|
@@ -115,6 +116,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_160326) do
     t.string "location"
     t.datetime "created_at", default: -> { "current_timestamp()" }, null: false
     t.datetime "updated_at", default: -> { "current_timestamp()" }, null: false
+    t.index ["getting_time", "dong", "roomtype"], name: "extract_data"
   end
 
 end

@@ -2,116 +2,93 @@ const dayjs = require('dayjs');
 const timeNow = () => dayjs().format('YYYY-MM-DD HH:mm:ss');
 const timeTail = () => dayjs().subtract(1, 'm').format('YYYY-MM-DD HH:mm:ss');
 
-const chartAxis = {
-  x: {
-    type: 'timeseries',
-    min: timeTail(),
-    max: timeNow(),
-    tick: {
-      fit: false,
-      rotate: -30,
-      format: '%Y-%m-%d %H:%M:%S',
-    }
-  }
-}
+/* I just wanted to use class or reuse sth, but it's not easy and I've no time to be done so just done it as follows */
+/* flowchart */
+let flowrateChartAxis = { x: { type: 'timeseries', min: timeTail(), max: timeNow(), tick: { fit: false, rotate: -30, format: '%Y-%m-%d %H:%M:%S', }}}
+let flowrateChartData = { x: 'x', xFormat: '%Y-%m-%d %H:%M:%S', columns: [ ['x',], ['flowrate',] ], type: 'line'}
+let flowrateChart = c3.generate({ bindto: '#flowrate_linechart', data: flowrateChartData, axis: flowrateChartAxis,});
 
-const chartData = {
-  x: 'x',
-  xFormat: '%Y-%m-%d %H:%M:%S',
-  columns: [
-    ['x',],
-    ['flowrate',]
-  ],
-  /* type: 'spline-area' */
-}
+/* totalvolume */
+let totalvolumeChartAxis = { x: { type: 'timeseries', min: timeTail(), max: timeNow(), tick: { fit: false, rotate: -30, format: '%Y-%m-%d %H:%M:%S', }}}
+let totalvolumeChartData = { x: 'x', xFormat: '%Y-%m-%d %H:%M:%S', columns: [ ['x',], ['totalvolume',] ], type: 'area'}
+let totalvolumeChart = c3.generate({ bindto: '#totalvolume_linechart', data: totalvolumeChartData, axis: totalvolumeChartAxis,});
 
-let chart = c3.generate({
-    bindto: '#flowrate_linechart',
-    data: chartData,
-    axis: chartAxis,
-});
+/* pressure */
+let pressureChartAxis = { x: { type: 'timeseries', min: timeTail(), max: timeNow(), tick: { fit: false, rotate: -30, format: '%Y-%m-%d %H:%M:%S', }}}
+let pressureChartData = { x: 'x', xFormat: '%Y-%m-%d %H:%M:%S', columns: [ ['x',], ['pressure',] ], type: 'spline'}
+let pressureChart = c3.generate({ bindto: '#pressure_linechart', data: pressureChartData, axis: pressureChartAxis,});
 
 
-/* 
- * function fetchdata(){
- *  $.ajax({
- *   url: '/api/v1/realtimedata',
- *    type: 'get',
- *    
- *    success: function(response){
- *      var value = [];
- *      for (var index in response) {
- *        console.log(response[index]);
- *        value.push(response[index]);
- *      }
- *      var chart = c3.generate({
- *        bindto: "#flowrate_linechart",
- *        data: {
- * 	 json: value,
- * 	 keys: {
- * 	   value: ['flowrate'] 
- * 	 },
- *        },
- *        axis: {
- * 	 x: {
- * 	   tick: {
- * 	     culling: {
- * 	       max:20
- * 	     }
- * 	   }
- * 	 }
- *        }
- *      });
- * 
- *      var chart = c3.generate({
- *        bindto: "#totalvolume_linechart",
- *        data: {
- * 	 json: value,
- * 	 keys: {
- * 	   value: ['totalvolume'] 
- * 	 },
- *        },
- *        axis: {
- * 	 x: {
- * 	   tick: {
- * 	     culling: {
- * 	       max:20
- * 	     }
- * 	   }
- * 	 }
- *        }
- *      });
- *      
- * }})} */
-  /* setInterval(fetchdata,2000); */
-  /* fetchdata(); */
-$(document).ready(function(){
-  setInterval(() => {
+/* temperature */
+let temperatureChartAxis = { x: { type: 'timeseries', min: timeTail(), max: timeNow(), tick: { fit: false, rotate: -30, format: '%Y-%m-%d %H:%M:%S', }}}
+let temperatureChartData = { x: 'x', xFormat: '%Y-%m-%d %H:%M:%S', columns: [ ['x',], ['temperature',] ], type: 'area-step'}
+let temperatureChart = c3.generate({ bindto: '#temperature_linechart', data: temperatureChartData, axis: temperatureChartAxis,});
+
+
+function realtimeInterval()
+{
+    setInterval(() => {
     $.ajax({
       url: '/api/v1/realtimedata',
-      type: 'get',
+      type: 'post',
+      data: {
+	chosen_dong: "flowrate",
+	chosen_roomtype: "flowrate",	
+	chosen_datatype: "flowrate"
+      },
       error: function (error) {
-	console.log(error);
+ 	console.log(error);
       },
       success: function(response){
-	var flowratevalue;
-	for (var index in response) {
-          console.log(response[index]);
-	  obj = response[index];
-	  flowratevalue = obj['flowrate'];
-	}
-	console.log(response);
-	chart.axis.min({x: timeTail()});
-	chart.axis.max({x: timeNow()});
+ 	flowratevalue = response['flowrate'];
+ 	totalvolumevalue = response['totalvolume'];
+ 	temperaturevalue = response['temperature'];
+ 	pressurevalue = response['pressure'];
 
-	chartData.columns[0].push(timeNow());
-	chartData.columns[1].push(flowratevalue);
-	chart.load({columns: chartData.columns});
+	/* flowchart */
+ 	console.log(response);
+	
+ 	flowrateChart.axis.min({x: timeTail()});
+ 	flowrateChart.axis.max({x: timeNow()});
+	
+ 	flowrateChartData.columns[0].push(timeNow());
+ 	flowrateChartData.columns[1].push(flowratevalue);
+ 	flowrateChart.load({columns: flowrateChartData.columns});
+
+	/* totalvolume */
+	totalvolumeChart.axis.min({x: timeTail()});
+ 	totalvolumeChart.axis.max({x: timeNow()});
+	
+ 	totalvolumeChartData.columns[0].push(timeNow());
+ 	totalvolumeChartData.columns[1].push(totalvolumevalue);
+ 	totalvolumeChart.load({columns: totalvolumeChartData.columns});
+
+	/* pressurechart */
+	pressureChart.axis.min({x: timeTail()});
+ 	pressureChart.axis.max({x: timeNow()});
+	
+ 	pressureChartData.columns[0].push(timeNow());
+ 	pressureChartData.columns[1].push(pressurevalue);
+ 	pressureChart.load({columns: pressureChartData.columns});
+	
+
+	/* temperaturechart */
+	temperatureChart.axis.min({x: timeTail()});
+ 	temperatureChart.axis.max({x: timeNow()});
+	
+ 	temperatureChartData.columns[0].push(timeNow());
+ 	temperatureChartData.columns[1].push(temperaturevalue);
+ 	temperatureChart.load({columns: temperatureChartData.columns});
       },
       complete: function() {
-	console.log("end");
+ 	console.log("end");
       }
     });
-  }
-  , 1000); });  
+  }, 1000);  
+}
 
+$(document).ready(function(){
+  realtimeInterval();
+});  
+
+ 
